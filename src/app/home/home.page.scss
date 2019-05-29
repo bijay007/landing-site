@@ -1,1 +1,27 @@
-
+ion-grid {
+  text-align: center;
+}
+ion-row {
+  display: flex;
+  align-items: center
+}
+ion-col {
+  display: flex;
+  align-items: center
+}
+.main-title {
+  letter-spacing: 0.2rem
+}
+.ion-col-read-icon {
+  justify-content: flex-end
+}
+.read-later {
+  position: absolute;
+  top: 11px;
+  right: 26px;
+  font-weight: bold
+}
+img {
+  align-self: flex-end;
+  height: 2.75rem
+}

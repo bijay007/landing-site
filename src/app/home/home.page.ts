@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
-
+  unreadCount = 2;
+  imgRoot = '../../assets';
+  logo = `${this.imgRoot}/logo.png`;
+  readIcon = `${this.imgRoot}/read-later.png`;
 }
