@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-article',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit {
+  image: string;
+
+  @Input() title: string;
+  @Input() subtitle: string;
+  @Input() textContent: string;
+  @Input() imgName: string;
 
   constructor() { }
-  research = `../../assets/research.jpg`;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.image = `../../assets/${this.imgName}`;
+  }
 
 }
