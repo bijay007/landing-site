@@ -1,0 +1,1 @@
+## Simple landing site app to try Ionic-Angular
