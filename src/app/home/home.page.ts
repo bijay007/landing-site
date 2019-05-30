@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor() {}
-  unreadCount = 2;
-  imgRoot = '../../assets';
-  logo = `${this.imgRoot}/logo.png`;
-  readIcon = `${this.imgRoot}/read-later.png`;
+  unreadCount: number;
+  constructor() {
+    this.unreadCount = 2;
+  }
+  logo = `../../assets/logo.png`;
+  readIcon = `../../assets/read-later.png`;
 }

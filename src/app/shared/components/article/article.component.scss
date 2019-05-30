@@ -1,0 +1,17 @@
+.article-content {
+  display: flex;
+  .text-content {
+    display: flex;
+    align-items: center;
+    line-height: 1.5rem;
+    padding: 2rem inherit;
+    text-align: justify;
+  }
+  .image-content {
+    padding: 1rem;
+    object-fit: contain;
+    img {
+      height: 90%
+    }
+  }
+}
