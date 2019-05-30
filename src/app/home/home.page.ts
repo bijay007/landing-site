@@ -8,8 +8,12 @@ import { Component } from '@angular/core';
 export class HomePage {
   unreadCount: number;
   constructor() {
-    this.unreadCount = 2;
+    this.unreadCount = 0;
   }
   logo = `../../assets/logo.png`;
   readIcon = `../../assets/read-later.png`;
+
+  displayFormCount(count) {
+    this.unreadCount = count;
+  }
 }

@@ -21,7 +21,7 @@
 
 <ion-content>
   <app-home-banner></app-home-banner>
-  <app-home-content></app-home-content>
+  <app-home-content (formSubmitted)='displayFormCount($event)'></app-home-content>
 </ion-content>
 
 <ion-footer>

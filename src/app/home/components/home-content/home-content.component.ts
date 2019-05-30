@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,10 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class HomeContentComponent implements OnInit {
   myForm: FormGroup;
+
+  @Output() formSubmitted = new EventEmitter();
   constructor(private formBuilder: FormBuilder) { }
+
   ngOnInit() {
     this.myForm = this.formBuilder.group({
       name: '',
@@ -17,6 +20,8 @@ export class HomeContentComponent implements OnInit {
     })
     this.myForm.valueChanges.subscribe(console.log)
   }
+
+  counter = 0;
   articles = [
     {
       title: 'Latest News',
@@ -33,8 +38,9 @@ export class HomeContentComponent implements OnInit {
       imgName: 'yarsagumba.jpg'
     }
   ]
-  submit(e) {
-    e.preventDefault();
-    console.log('submitted..');
+
+  submitForm() {
+    this.counter++;
+    this.formSubmitted.emit(this.counter);
   }
 }
