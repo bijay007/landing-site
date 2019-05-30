@@ -1,0 +1,45 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size='12' size-md='8'>
+      <div *ngFor="let article of articles">
+        <app-article
+          title={{article.title}}
+          subtitle={{article.subtitle}}
+          textContent={{article.textContent}}
+          imgName={{article.imgName}}
+        >
+      </app-article>
+      </div>
+    </ion-col>
+    <ion-col size='12' size-md='4'>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            <h4>Subscribe to our newsletter</h4>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <form [formGroup]='myForm' (submit)='submitForm(e)'>
+            <div class="form_wrapper">
+              <div class="form_input">
+                <label for='name'>Name</label>
+                <input name='name' placeholder="Your name" formControlName='name' />
+              </div>               
+              <div class="form_input">
+                <label for='age'>Age</label>
+                <input name='age' placeholder="Your age" formControlName='age' />
+              </div>               
+              <div class="form_input">
+                <label for='email'>Email</label>
+                <input name='email' placeholder="Your email" formControlName='email' />
+              </div>               
+              <div class='form_button'>
+                <button type='submit'><span>Submit</span></button>
+              </div>
+            </div>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
