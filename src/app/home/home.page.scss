@@ -25,3 +25,14 @@ img {
   align-self: flex-end;
   height: 2.75rem
 }
+
+@media (max-width: 480px) {
+  img {
+    height: 2.25rem
+  }
+  .read-later {
+    top: 8px;
+    right: 20px;
+    font-weight: normal
+  }
+}
