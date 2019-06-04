@@ -1,7 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Observable, fromEvent } from 'rxjs';
-import UtilsHelperService from '../../../services/utils-helper.service';
 
 @Component({
   selector: 'app-home-content',
@@ -25,11 +24,10 @@ export class HomeContentComponent implements OnInit {
     
     const form = document.getElementsByTagName('form')[0];
     this.formSubmit = fromEvent(form, 'submit');
-    this.formSubmit
-      .subscribe((event) =>
-        UtilsHelperService.formSubmitObserver(event)
-        .next(this.counter, this.formSubmitted)
-      )
+    this.formSubmit.subscribe((submitEvent) => {
+      this.counter++;
+      this.formSubmitted.emit(this.counter);
+    })
   }
 
   counter = 0;
