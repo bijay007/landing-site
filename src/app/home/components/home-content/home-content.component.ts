@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Observable, fromEvent } from 'rxjs';
+import UtilsHelperService from '../../../services/utils-helper.service';
 
 @Component({
   selector: 'app-home-content',
@@ -8,6 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class HomeContentComponent implements OnInit {
   myForm: FormGroup;
+  formSubmit: Observable<any>;
 
   @Output() formSubmitted = new EventEmitter();
   constructor(private formBuilder: FormBuilder) { }
@@ -19,6 +22,14 @@ export class HomeContentComponent implements OnInit {
       email: ''
     })
     this.myForm.valueChanges.subscribe(console.log)
+    
+    const form = document.getElementsByTagName('form')[0];
+    this.formSubmit = fromEvent(form, 'submit');
+    this.formSubmit
+      .subscribe((event) =>
+        UtilsHelperService.formSubmitObserver(event)
+        .next(this.counter, this.formSubmitted)
+      )
   }
 
   counter = 0;
@@ -38,9 +49,4 @@ export class HomeContentComponent implements OnInit {
       imgName: 'yarsagumba.jpg'
     }
   ]
-
-  submitForm() {
-    this.counter++;
-    this.formSubmitted.emit(this.counter);
-  }
 }
